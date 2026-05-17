@@ -1,0 +1,539 @@
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sky High Academy – Learn Today. Lead Tomorrow.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- WHATSAPP FLOAT BUTTON -->
+<a href="https://wa.me/919629859010" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <span class="wa-tooltip">Chat with us!</span>
+  💬
+</a>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Sky High <span>Academy</span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#enroll" class="nav-cta">Enroll Now</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-badge">✦ Learn Today · Lead Tomorrow</div>
+    <h1>Sky High<br><span>Academy</span></h1>
+    <p>An Academic & Skill Development Centre building strong educational foundations alongside essential life skills — for Classes 1st to 9th & beyond.</p>
+    <div class="hero-btns">
+      <a href="#enroll" class="btn-primary">Enroll Now</a>
+      <a href="#contact" class="btn-outline">Contact Us</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Programs</div></div>
+      <div class="stat"><div class="stat-num">9</div><div class="stat-label">Grade Levels</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-label">Boards Covered</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Skill Focus</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-grid">
+    <div>
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">Building Futures,<br>One Student at a Time</h2>
+      <p class="section-sub">Sky High Academy combines structured academic coaching with practical skill training to help students grow in confidence, communication, and overall performance.</p>
+      <div class="about-features">
+        <div class="feat">
+          <div class="feat-icon">📚</div>
+          <div class="feat-text">
+            <strong>Strong Academic Foundation</strong>
+            <span>All boards — State, CBSE, ICSE — Classes 1st to 9th</span>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">🎯</div>
+          <div class="feat-text">
+            <strong>Practical Skill Training</strong>
+            <span>Communication, coding, personality & aptitude</span>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-icon">🚀</div>
+          <div class="feat-text">
+            <strong>Placement Ready</strong>
+            <span>Interview prep & resume building for UG/PG students</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="big-text">3</div>
+      <div class="divider"></div>
+      <p style="font-size:1.1rem;font-weight:600;margin-bottom:0.4rem">Powerful Programs</p>
+      <p>Academic Tuition · Skill Development · Placement Training</p>
+      <div class="divider"></div>
+      <p>Individual attention · Progress tracking · Parent reviews · Smart classes</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="programs" id="programs">
+  <div class="section-header" style="max-width:1100px;margin:0 auto 3rem;">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">Our Programs</h2>
+    <p class="section-sub">From tuition to placement training — a complete ecosystem for student success.</p>
+  </div>
+  <div class="programs-grid">
+    <div class="program-card">
+      <div class="card-icon">📖</div>
+      <div class="card-tag">Classes 1–9 · All Boards</div>
+      <h3>Academic Tuition</h3>
+      <p>Structured coaching for State, CBSE, and ICSE boards with individual attention and regular progress tests.</p>
+      <ul class="card-list">
+        <li>All major subjects covered</li>
+        <li>Regular tests & assessments</li>
+        <li>Monthly parent review meetings</li>
+        <li>Smart tech-enabled classes</li>
+      </ul>
+    </div>
+    <div class="program-card">
+      <div class="card-icon">🗣️</div>
+      <div class="card-tag">Classes 4–7</div>
+      <h3>Spoken English</h3>
+      <p>From vocabulary basics to everyday conversations — building confident English speakers.</p>
+      <ul class="card-list">
+        <li>Vocabulary & sentence formation</li>
+        <li>Pronunciation practice</li>
+        <li>Daily conversation drills</li>
+        <li>Common dialogues & listening</li>
+      </ul>
+    </div>
+    <div class="program-card">
+      <div class="card-icon">🎤</div>
+      <div class="card-tag">Classes 8–9</div>
+      <h3>Communication Skills</h3>
+      <p>Advanced communication, public speaking, and leadership for senior school students.</p>
+      <ul class="card-list">
+        <li>Public speaking & GD</li>
+        <li>Presentation & storytelling</li>
+        <li>Body language & etiquette</li>
+        <li>Stage fear removal</li>
+      </ul>
+    </div>
+    <div class="program-card">
+      <div class="card-icon">💻</div>
+      <div class="card-tag">Classes 4–9</div>
+      <h3>Computer & Coding</h3>
+      <p>From Office tools to beginner programming — practical digital skills for the modern world.</p>
+      <ul class="card-list">
+        <li>MS Office (Word, Excel, PPT)</li>
+        <li>Scratch & logic building</li>
+        <li>C, C++, Java basics</li>
+        <li>Project-based learning</li>
+      </ul>
+    </div>
+    <div class="program-card">
+      <div class="card-icon">🌟</div>
+      <div class="card-tag">Classes 4–9</div>
+      <h3>Personality Development</h3>
+      <p>Holistic growth — confidence, leadership, time management, and positive thinking.</p>
+      <ul class="card-list">
+        <li>Confidence & leadership</li>
+        <li>Time management</li>
+        <li>Positive thinking & motivation</li>
+        <li>Body language & etiquette</li>
+      </ul>
+    </div>
+    <div class="program-card">
+      <div class="card-icon">🧠</div>
+      <div class="card-tag">Classes 4–9</div>
+      <h3>Aptitude & Study Skills</h3>
+      <p>Logical reasoning, smart study techniques, and exam strategies for peak performance.</p>
+      <ul class="card-list">
+        <li>Logical reasoning & pattern recognition</li>
+        <li>Smart study techniques</li>
+        <li>Memory & concentration methods</li>
+        <li>Exam preparation strategies</li>
+      </ul>
+    </div>
+    <div class="program-card" style="border-color: var(--gold);">
+      <div class="card-icon">🏆</div>
+      <div class="card-tag" style="background:#fff8e1;color:#a07800">UG · PG · Professionals</div>
+      <h3>Placement Training</h3>
+      <p>End-to-end job-readiness — from aptitude and GDs to resume building and mock interviews with industry HR.</p>
+      <ul class="card-list">
+        <li>Aptitude & logical reasoning</li>
+        <li>Resume building & interview prep</li>
+        <li>Mock interviews with industry HR</li>
+        <li>Course completion certificate</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section class="schedule" id="schedule">
+  <div class="section-header" style="max-width:1100px;margin:0 auto 3rem;">
+    <div class="section-label">Timings</div>
+    <h2 class="section-title">Class Schedule</h2>
+    <p class="section-sub" style="color:rgba(255,255,255,0.65)">Flexible batches designed around school hours so students never have to choose.</p>
+  </div>
+  <div class="schedule-grid">
+    <div class="sched-card">
+      <h3>📖 Tuition Batches</h3>
+      <div class="sched-item"><span class="label">Batch 1</span><span class="value">4:30 PM – 6:30 PM</span></div>
+      <div class="sched-item"><span class="label">Batch 2</span><span class="value">5:30 PM – 7:30 PM</span></div>
+      <div class="sched-item"><span class="label">Batch 3</span><span class="value">6:30 PM – 8:30 PM</span></div>
+      <div class="sched-item"><span class="label">Boards</span><span class="value">State / CBSE / ICSE</span></div>
+      <div class="sched-item"><span class="label">Classes</span><span class="value">1st to 9th STD</span></div>
+    </div>
+    <div class="sched-card">
+      <h3>🎯 Skill Development</h3>
+      <div class="sched-item"><span class="label">Day</span><span class="value">Every Saturday</span></div>
+      <div class="sched-item"><span class="label">Time</span><span class="value">5:00 PM – 7:00 PM</span></div>
+      <div class="sched-item"><span class="label">Classes</span><span class="value">4th to 9th STD</span></div>
+      <div class="sched-item"><span class="label">Format</span><span class="value">Weekend Batches</span></div>
+    </div>
+    <div class="sched-card">
+      <h3>🏆 Placement Training</h3>
+      <div class="sched-item"><span class="label">Duration</span><span class="value">1 Month / 3 Months</span></div>
+      <div class="sched-item"><span class="label">Batches</span><span class="value">Weekend & Weekday</span></div>
+      <div class="sched-item"><span class="label">Certificate</span><span class="value">Completion + Performance</span></div>
+      <div class="sched-item"><span class="label">For</span><span class="value">UG, PG & Professionals</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="whyus" id="why">
+  <div class="section-header" style="max-width:1100px;margin:0 auto 3rem;">
+    <div class="section-label">Our Edge</div>
+    <h2 class="section-title">Why Choose Sky High?</h2>
+  </div>
+  <div class="why-grid" style="max-width:1100px;margin:0 auto;">
+    <div class="why-card"><div class="why-icon">👤</div><h4>Individual Attention</h4><p>Every student gets personalised focus — no one is left behind.</p></div>
+    <div class="why-card"><div class="why-icon">📊</div><h4>Regular Tests & Tracking</h4><p>Consistent assessments and progress reports keep students on track.</p></div>
+    <div class="why-card"><div class="why-icon">👨‍👩‍👦</div><h4>Parent Review Meetings</h4><p>Monthly meetings keep parents informed and involved.</p></div>
+    <div class="why-card"><div class="why-icon">🎮</div><h4>Activity-Based Learning</h4><p>Practical, hands-on methods that make learning stick.</p></div>
+    <div class="why-card"><div class="why-icon">👩‍💼</div><h4>Experienced Trainers</h4><p>Qualified educators with real-world industry HR support.</p></div>
+    <div class="why-card"><div class="why-icon">💡</div><h4>Smart Classes</h4><p>Technology-enabled learning for a modern education experience.</p></div>
+  </div>
+</section>
+
+<!-- ENROLL -->
+<section class="enroll" id="enroll">
+  <div class="enroll-wrapper">
+    <div class="enroll-info">
+      <div class="section-label">Join Us</div>
+      <h2 class="section-title" style="color:white;">Enroll at<br>Sky High Academy</h2>
+      <p>Fill in the form and our team will reach out to confirm your spot and answer any questions you have.</p>
+      <div class="enroll-perks">
+        <div class="enroll-perk"><span>✅</span><span>Smart class-enabled learning environment</span></div>
+        <div class="enroll-perk"><span>📊</span><span>Regular tests & monthly parent reviews</span></div>
+        <div class="enroll-perk"><span>👤</span><span>Individual attention for every student</span></div>
+        <div class="enroll-perk"><span>🏆</span><span>Certificate on completion for skill programs</span></div>
+        <div class="enroll-perk"><span>📞</span><span>Quick response — we'll call you within 24 hrs</span></div>
+      </div>
+    </div>
+
+    <div class="enroll-form-box">
+      <h3>Enrollment Form</h3>
+      <p>Tell us about yourself and we'll suggest the right program.</p>
+
+      <div id="enrollForm">
+        <!-- Basic Info -->
+        <div class="form-section-title">Personal Details</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Student Name <span class="req">*</span></label>
+            <input type="text" id="studentName" placeholder="Full name" />
+          </div>
+          <div class="form-group">
+            <label>Parent / Guardian Name <span class="req">*</span></label>
+            <input type="text" id="parentName" placeholder="Parent's name" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number <span class="req">*</span></label>
+            <input type="tel" id="phone" placeholder="10-digit mobile number" maxlength="10" />
+          </div>
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="email" placeholder="email@example.com" />
+          </div>
+        </div>
+
+        <!-- Student Type -->
+        <div class="form-section-title">Student Category</div>
+        <div class="form-group">
+          <label>I am a <span class="req">*</span></label>
+          <div class="chip-group" id="studentTypeGroup">
+            <div class="chip" onclick="selectStudentType('grade1to9', this)">Grade 1 – 3 Student</div>
+            <div class="chip" onclick="selectStudentType('grade4to9', this)">Grade 4 – 9 (Skill Interest)</div>
+            <div class="chip" onclick="selectStudentType('highschool', this)">High School Graduate</div>
+            <div class="chip" onclick="selectStudentType('college', this)">College Student / Professional</div>
+          </div>
+        </div>
+
+        <!-- GRADE 1-9 SECTION -->
+        <div class="dynamic-section" id="sec-grade1to9">
+          <div class="form-section-title">Tuition Details</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Standard <span class="req">*</span></label>
+              <select id="standard1to9">
+                <option value="">Select standard</option>
+                <option>1st Standard</option>
+                <option>2nd Standard</option>
+                <option>3rd Standard</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Board <span class="req">*</span></label>
+              <select id="board1to9">
+                <option value="">Select board</option>
+                <option>State Board</option>
+                <option>CBSE</option>
+                <option>ICSE</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Preferred Batch Timing <span class="req">*</span></label>
+            <div class="chip-group">
+              <div class="chip" onclick="toggleChip(this)">Batch 1 — 4:30–6:30 PM</div>
+              <div class="chip" onclick="toggleChip(this)">Batch 2 — 5:30–7:30 PM</div>
+              <div class="chip" onclick="toggleChip(this)">Batch 3 — 6:30–8:30 PM</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GRADE 4-9 SKILL SECTION -->
+        <div class="dynamic-section" id="sec-grade4to9">
+          <div class="form-section-title">Class & Interest</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Standard <span class="req">*</span></label>
+              <select id="standard4to9">
+                <option value="">Select standard</option>
+                <option>4th Standard</option><option>5th Standard</option>
+                <option>6th Standard</option><option>7th Standard</option>
+                <option>8th Standard</option><option>9th Standard</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Program Interest <span class="req">*</span></label>
+              <select id="prog4to9" onchange="toggleTuitionOrSkill()">
+                <option value="">Select program</option>
+                <option value="tuition">Tuition Classes</option>
+                <option value="skill">Skill Development</option>
+                <option value="both">Both Tuition & Skill</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- if tuition chosen -->
+          <div class="dynamic-section" id="sec-4to9-tuition">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Board <span class="req">*</span></label>
+                <select id="board4to9">
+                  <option value="">Select board</option>
+                  <option>State Board</option>
+                  <option>CBSE</option>
+                  <option>ICSE</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Preferred Batch Timing</label>
+                <select>
+                  <option value="">Select batch</option>
+                  <option>Batch 1 — 4:30–6:30 PM</option>
+                  <option>Batch 2 — 5:30–7:30 PM</option>
+                  <option>Batch 3 — 6:30–8:30 PM</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- if skill chosen -->
+          <div class="dynamic-section" id="sec-4to9-skill">
+            <div class="form-group">
+              <label>Skill Programs Interested In</label>
+              <div class="chip-group">
+                <div class="chip" onclick="toggleChip(this)">Spoken English</div>
+                <div class="chip" onclick="toggleChip(this)">Communication Skills</div>
+                <div class="chip" onclick="toggleChip(this)">Computer & Coding</div>
+                <div class="chip" onclick="toggleChip(this)">Personality Development</div>
+                <div class="chip" onclick="toggleChip(this)">Aptitude & Study Skills</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HIGH SCHOOL SECTION -->
+        <div class="dynamic-section" id="sec-highschool">
+          <div class="form-section-title">Skill Development Programs</div>
+          <div class="form-group">
+            <label>Programs Interested In <span class="req">*</span></label>
+            <div class="chip-group">
+              <div class="chip" onclick="toggleChip(this)">Spoken English</div>
+              <div class="chip" onclick="toggleChip(this)">Communication Skills</div>
+              <div class="chip" onclick="toggleChip(this)">Computer & Coding</div>
+              <div class="chip" onclick="toggleChip(this)">Personality Development</div>
+              <div class="chip" onclick="toggleChip(this)">Aptitude & Study Skills</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Preferred Schedule</label>
+            <div class="chip-group">
+              <div class="chip" onclick="toggleChip(this)">Weekdays</div>
+              <div class="chip" onclick="toggleChip(this)">Saturday 5–7 PM</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COLLEGE STUDENT SECTION -->
+        <div class="dynamic-section" id="sec-college">
+          <div class="form-section-title">Placement Training</div>
+          <div class="form-group">
+            <label>Current Status <span class="req">*</span></label>
+            <div class="chip-group">
+              <div class="chip" onclick="toggleChip(this)">UG Student</div>
+              <div class="chip" onclick="toggleChip(this)">PG Student</div>
+              <div class="chip" onclick="toggleChip(this)">Working Professional</div>
+              <div class="chip" onclick="toggleChip(this)">Job Seeker</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Preferred Duration</label>
+            <div class="chip-group">
+              <div class="chip" onclick="toggleChip(this)">1-Month Intensive</div>
+              <div class="chip" onclick="toggleChip(this)">3-Month Program</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Preferred Batch</label>
+            <div class="chip-group">
+              <div class="chip" onclick="toggleChip(this)">Weekday Batch</div>
+              <div class="chip" onclick="toggleChip(this)">Weekend Batch</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Message -->
+        <div class="form-section-title">Additional Info</div>
+        <div class="form-group">
+          <label>Message / Questions</label>
+          <textarea id="message" placeholder="Any specific questions or requirements..."></textarea>
+        </div>
+
+        <button class="submit-btn" onclick="submitForm()">🚀 Submit Enrollment Request</button>
+      </div>
+
+      <!-- Success -->
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">🎉</div>
+        <h4>Enrollment Request Received!</h4>
+        <p>Thank you! Our team will contact you within 24 hours to confirm your enrollment and answer any questions.</p>
+        <br>
+        <a href="https://wa.me/919629859010" class="btn-primary" style="font-size:0.9rem;padding:0.7rem 1.8rem;" target="_blank">💬 Also reach us on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Find Us &amp; Reach Out</h2>
+    <div class="contact-grid">
+      <div class="contact-details">
+
+        <a href="tel:9629859010" class="contact-item">
+          <span class="contact-item-icon">📞</span>
+          <div>
+            <div class="contact-item-label">Call Us</div>
+            <div class="contact-item-value">9629859010</div>
+          </div>
+        </a>
+
+        <a href="mailto:shacademypondy@gmail.com" class="contact-item">
+          <span class="contact-item-icon">✉️</span>
+          <div>
+            <div class="contact-item-label">Email Us</div>
+            <div class="contact-item-value">shacademypondy@gmail.com</div>
+          </div>
+        </a>
+
+        <a href="https://share.google/AStZBVor2zPNssoY5" target="_blank" class="contact-item">
+          <span class="contact-item-icon">📍</span>
+          <div>
+            <div class="contact-item-label">Visit Us</div>
+            <div class="contact-item-value">16, Pandian St, Venkata Nagar</div>
+            <div class="contact-item-sub">Puducherry – 605011 · Click to open in Maps</div>
+          </div>
+        </a>
+
+        <div class="contact-item" style="cursor:default;">
+          <span class="contact-item-icon">🌐</span>
+          <div>
+            <div class="contact-item-label">Follow Us</div>
+            <div class="contact-item-value" style="margin-bottom:0.6rem;">Instagram</div>
+            <div class="social-row">
+              <a href="https://www.instagram.com/skyhighacademy_pondicherry" target="_blank" class="social-btn">
+                📸 @skyhighacademy_pondicherry
+              </a>
+            </div> 
+          </div>
+        </div>
+
+        <a href="https://wa.me/919043917162" target="_blank" class="contact-item" style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);">
+          <span class="contact-item-icon">💬</span>
+          <div>
+            <div class="contact-item-label">WhatsApp</div>
+            <div class="contact-item-value" style="color:#1b5e20;">Message Us on WhatsApp</div>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="map-box">
+        <iframe
+          src="https://maps.google.com/maps?q=16+Pandian+St+Venkata+Nagar+Puducherry+605011&output=embed"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Sky High Academy Location">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 <span>Sky High Academy</span> · Learn Today. Lead Tomorrow. · 16, Pandian St, Venkata Nagar, Puducherry 605011</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
