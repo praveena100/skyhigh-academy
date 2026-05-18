@@ -1,14 +1,7 @@
-const mysql = require("mysql2");
 const express = require("express");
+const db = require("../db");
 
 const router = express.Router();
-
-const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "skyhigh_academy"
-  });
 
 router.post("/login", (req, res) => {
 
