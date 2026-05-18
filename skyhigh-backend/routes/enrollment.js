@@ -11,8 +11,8 @@ router.post("/", async (req, res) => {
 
     const sql = `
 INSERT INTO enrollments
-(student_name, parent_name, phone, email, student_type, extra_details, message)
-VALUES (?, ?, ?, ?, ?, ?, ?)
+(student_name, parent_name, phone, email, student_type, extra_details, created_at, message)
+VALUES (?, ?, ?, ?, ?, ?, NOW(), ?)
 `;
 
 await new Promise((resolve, reject) => {
