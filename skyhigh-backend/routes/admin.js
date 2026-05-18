@@ -21,58 +21,56 @@ router.post("/login", (req, res) => {
   }
 });
 
-router.get("/students", (req, res) => {
+router.get("/students", async (req, res) => {
 
-  const sql = `
-    SELECT * FROM enrollments
-    ORDER BY id DESC
-  `;
+  try {
 
-  db.query(sql, (err, result) => {
+    const sql = `
+      SELECT * FROM enrollments
+      ORDER BY id DESC
+    `;
 
-    if (err) {
+    const [result] = await db.query(sql);
 
-      console.log(err);
+    res.json({
+      success: true,
+      students: result
+    });
 
-      res.status(500).json({
-        success: false,
-        error: err.message
-      });
+  } catch (err) {
 
-    } else {
+    console.log(err);
 
-      res.json({
-        success: true,
-        students: result
-      });
-    }
-  });
+    res.status(500).json({
+      success: false
+    });
+  }
 });
 
-  router.delete("/delete/:id", (req, res) => {
+router.delete("/delete/:id", async (req, res) => {
+
+  try {
 
     const id = req.params.id;
-  
-    const sql =
-      "DELETE FROM enrollments WHERE id = ?";
-  
-    db.query(sql, [id], (err, result) => {
-  
-      if(err){
-  
-        console.log(err);
-  
-        res.json({
-          success:false
-        });
-  
-      }else{
-  
-        res.json({
-          success:true
-        });
-      }
+
+    const sql = `
+      DELETE FROM enrollments WHERE id = ?
+    `;
+
+    await db.query(sql, [id]);
+
+    res.json({
+      success: true
     });
-  });
+
+  } catch (err) {
+
+    console.log(err);
+
+    res.status(500).json({
+      success: false
+    });
+  }
+});
 
 module.exports = router;
