@@ -23,28 +23,31 @@ router.post("/login", (req, res) => {
 
 router.get("/students", (req, res) => {
 
-    const sql =
-      "SELECT * FROM enrollments ORDER BY id DESC";
-  
-    db.query(sql, (err, result) => {
-  
-      if(err){
-  
-        console.log(err);
-  
-        res.json({
-          success:false
-        });
-  
-      }else{
-  
-        res.json({
-          success:true,
-          students: result
-        });
-      }
-    });
+  const sql = `
+    SELECT * FROM enrollments
+    ORDER BY id DESC
+  `;
+
+  db.query(sql, (err, result) => {
+
+    if (err) {
+
+      console.log(err);
+
+      res.status(500).json({
+        success: false,
+        error: err.message
+      });
+
+    } else {
+
+      res.json({
+        success: true,
+        students: result
+      });
+    }
   });
+});
 
   router.delete("/delete/:id", (req, res) => {
 
