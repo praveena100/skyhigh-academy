@@ -189,7 +189,7 @@ async function loadStudents(){
   try{
 
     const response = await fetch(
-      "http://localhost:5000/admin/students"
+      "https://skyhigh-backend-p60o.onrender.com/admin/students"
     );
 
     const data = await response.json();
@@ -317,7 +317,7 @@ try{
 
   const response = await fetch(
 
-    `http://localhost:5000/admin/delete/${id}`,
+    `https://skyhigh-backend-p60o.onrender.com/admin/delete/${id}`,
 
     {
       method:"DELETE"
