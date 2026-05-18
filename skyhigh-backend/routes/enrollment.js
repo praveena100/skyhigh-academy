@@ -15,27 +15,27 @@ INSERT INTO enrollments
 VALUES (?, ?, ?, ?, ?, ?, ?)
 `;
 
-db.query(
-  sql,
-  [
+await new Promise((resolve, reject) => {
+  db.query(sql, [
     data.studentName,
     data.parentName,
     data.phone,
     data.email,
     data.studentType,
-    Object.entries(data.extraDetails)
-  .map(([key, value]) => `${key}: ${value}`)
-  .join(" | "),
+    Object.entries(data.extraDetails || {})
+      .map(([key, value]) => `${key}: ${value}`)
+      .join(" | "),
     data.message
-  ],
-  (err, result) => {
+  ], (err, result) => {
     if (err) {
       console.log(err);
+      reject(err);
     } else {
       console.log("Data inserted into MySQL");
+      resolve(result);
     }
-  }
-);
+  });
+});
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -119,7 +119,7 @@ db.query(
   line-height:1.8;
 ">
   <pre style="margin:0; white-space:pre-wrap;">
-${Object.entries(data.extraDetails)
+${Object.entries(data.extraDetails || {})
   .map(([key, value]) => `${key}: ${value}`)
   .join(" | ")}
   </pre>
