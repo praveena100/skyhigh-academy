@@ -37,7 +37,7 @@ await new Promise((resolve, reject) => {
   });
 });
 
-    /* const transporter = nodemailer.createTransport({
+     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
         user: process.env.EMAIL_USER,
@@ -147,8 +147,14 @@ ${Object.entries(data.extraDetails || {})
 `,
     };
 
-    await transporter.sendMail(mailOptions);
-   */
+    transporter.sendMail(mailOptions)
+  .then(() => {
+    console.log("Email sent");
+  })
+  .catch((err) => {
+    console.log("Email failed:", err);
+  });
+   
     res.status(200).json({
       success: true,
       message: "Enrollment submitted successfully",
