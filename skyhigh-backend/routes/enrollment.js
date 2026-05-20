@@ -147,17 +147,19 @@ ${Object.entries(data.extraDetails || {})
 `,
     };
 
-    transporter.sendMail(mailOptions)
-  .then(() => {
-    console.log("Email sent");
-  })
-  .catch((err) => {
-    console.log("Email failed:", err);
-  });
-   
+    transporter.sendMail(mailOptions, (err, info) => {
+
+      if (err) {
+        console.log("Email failed:", err);
+      } else {
+        console.log("Email sent");
+      }
+    
+    });
+    
     res.status(200).json({
       success: true,
-      message: "Enrollment submitted successfully",
+      message: "Enrollment submitted successfully"
     });
 
   } catch (error) {
