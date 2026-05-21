@@ -224,6 +224,8 @@ btn.innerText = "Submitting...";
       body: JSON.stringify(formData)
     });
 
+    console.log(response);
+
     const text = await response.text();
 
 console.log(text);
