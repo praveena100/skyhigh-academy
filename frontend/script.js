@@ -228,6 +228,8 @@ btn.innerText = "Submitting...";
 
     if (data.success) {
 
+      btn.innerText = "Submitted Successfully";
+
       document.getElementById('enrollForm').style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
     
@@ -235,15 +237,15 @@ btn.innerText = "Submitting...";
     
       alert("Failed to submit form");
 
-      submitBtn.innerText = "🚀 Submit Enrollment Request";
-      submitBtn.disabled = false;
+      btn.innerText = "🚀 Submit Enrollment Request";
+      btn.disabled = false;
     } 
   }catch (error) {
 
     console.error(error);
   alert("Server error");
 
-  submitBtn.innerText = "🚀 Submit Enrollment Request";
-  submitBtn.disabled = false;
+  btn.innerText = "🚀 Submit Enrollment Request";
+btn.disabled = false;
   }
 }
