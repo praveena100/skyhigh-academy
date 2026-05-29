@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const nodemailer = require("nodemailer");
-const db = require("../db");
+const supabase = require("../supabase");
 
 router.post("/", async (req, res) => {
 
@@ -9,33 +9,27 @@ router.post("/", async (req, res) => {
 
     const data = req.body;
 
-    const sql = `
-INSERT INTO enrollments
-(student_name, parent_name, phone, email, student_type, extra_details, created_at, message)
-VALUES (?, ?, ?, ?, ?, ?, NOW(), ?)
-`;
-
-await new Promise((resolve, reject) => {
-  db.query(sql, [
-    data.studentName,
-    data.parentName,
-    data.phone,
-    data.email,
-    data.studentType,
-    Object.entries(data.extraDetails || {})
-      .map(([key, value]) => `${key}: ${value}`)
-      .join(" | "),
-    data.message
-  ], (err, result) => {
-    if (err) {
-      console.log(err);
-      reject(err);
-    } else {
-      console.log("Data inserted into MySQL");
-      resolve(result);
+    const { error } = await supabase
+  .from("enrollments")
+  .insert([
+    {
+      student_name: data.studentName,
+      parent_name: data.parentName,
+      phone: data.phone,
+      email: data.email,
+      student_type: data.studentType,
+      extra_details: Object.entries(data.extraDetails || {})
+        .map(([key, value]) => `${key}: ${value}`)
+        .join(" | "),
+      message: data.message
     }
-  });
-});
+  ]);
+
+if (error) {
+  throw error;
+}
+
+console.log("Data inserted into Supabase");
 
      const transporter = nodemailer.createTransport({
       service: "gmail",

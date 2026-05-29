@@ -1,5 +1,5 @@
 const express = require("express");
-const db = require("../db");
+const supabase = require("../supabase");
 
 const router = express.Router();
 
@@ -25,16 +25,16 @@ router.get("/students", async (req, res) => {
 
   try {
 
-    const sql = `
-      SELECT * FROM enrollments
-      ORDER BY id DESC
-    `;
+    const { data, error } = await supabase
+      .from("enrollments")
+      .select("*")
+      .order("id", { ascending: false });
 
-    const [result] = await db.query(sql);
+    if (error) throw error;
 
     res.json({
       success: true,
-      students: result
+      students: data
     });
 
   } catch (err) {
@@ -53,11 +53,12 @@ router.delete("/delete/:id", async (req, res) => {
 
     const id = req.params.id;
 
-    const sql = `
-      DELETE FROM enrollments WHERE id = ?
-    `;
+    const { error } = await supabase
+      .from("enrollments")
+      .delete()
+      .eq("id", id);
 
-    await db.query(sql, [id]);
+    if (error) throw error;
 
     res.json({
       success: true
