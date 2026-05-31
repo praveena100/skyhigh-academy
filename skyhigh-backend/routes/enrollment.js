@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const nodemailer = require("nodemailer");
-const supabase = require("../supabase");
+const supabase = require("../../supabase");
 
 router.post("/", async (req, res) => {
 
@@ -30,6 +30,9 @@ if (error) {
 }
 
 console.log("Data inserted into Supabase");
+    
+console.log("EMAIL_USER =", process.env.EMAIL_USER);
+console.log("EMAIL_PASS exists =", !!process.env.EMAIL_PASS);
 
      const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -144,9 +147,11 @@ ${Object.entries(data.extraDetails || {})
     transporter.sendMail(mailOptions, (err, info) => {
 
       if (err) {
-        console.log("Email failed:", err);
+        console.log("EMAIL ERROR:");
+        console.log(err);
       } else {
-        console.log("Email sent");
+        console.log("EMAIL SENT");
+        console.log(info);
       }
     
     });

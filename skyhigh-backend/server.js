@@ -4,8 +4,8 @@ const cors = require("cors");
 
 
 
-const enrollmentRoutes = require("./routes/enrollment");
-const adminRoutes = require("./routes/admin");
+const enrollmentRoutes = require("./.gitignore/routes/enrollment");
+const adminRoutes = require("./.gitignore/routes/admin");
 
 
 const app = express();
