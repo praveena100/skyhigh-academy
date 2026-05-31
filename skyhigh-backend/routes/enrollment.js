@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const nodemailer = require("nodemailer");
-const supabase = require("../../supabase");
+const supabase = require("../supabase");
 
 router.post("/", async (req, res) => {
 
