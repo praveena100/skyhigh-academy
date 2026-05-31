@@ -36,8 +36,8 @@ console.log("EMAIL_PASS exists =", !!process.env.EMAIL_PASS);
 
 const transporter = nodemailer.createTransport({
   host: "smtp-relay.brevo.com",
-  port: 587,
-  secure: false,
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
@@ -56,7 +56,7 @@ transporter.verify(function (error, success) {
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER,
+      to: "shacademypondy@gmail.com",
       subject: "New Enrollment Request - Sky High Academy",
     
       html: `
