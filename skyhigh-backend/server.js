@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 
-require("./db");
+
 
 const enrollmentRoutes = require("./routes/enrollment");
 const adminRoutes = require("./routes/admin");
