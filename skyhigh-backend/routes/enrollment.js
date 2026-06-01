@@ -35,7 +35,9 @@ console.log("EMAIL_USER =", process.env.EMAIL_USER);
 console.log("EMAIL_PASS exists =", !!process.env.EMAIL_PASS);
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
@@ -44,10 +46,10 @@ const transporter = nodemailer.createTransport({
 
 transporter.verify(function (error, success) {
 
-  if (err) {
-    console.log("EMAIL ERROR:", err);
+  if (error) {
+    console.log("EMAIL ERROR:", error);
   } else {
-    console.log("EMAIL SENT:", info.response);
+    console.log("SERVER IS READY");
   }
 
 });
@@ -154,17 +156,7 @@ ${Object.entries(data.extraDetails || {})
 `,
     };
 
-    transporter.sendMail(mailOptions, (err, info) => {
-
-      if (err) {
-        console.log("EMAIL ERROR:");
-        console.log(err);
-      } else {
-        console.log("EMAIL SENT");
-        console.log(info);
-      }
-    
-    });
+    await transporter.sendMail(mailOptions);
     
     res.status(200).json({
       success: true,
