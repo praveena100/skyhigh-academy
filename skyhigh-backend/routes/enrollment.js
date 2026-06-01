@@ -35,13 +35,13 @@ console.log("EMAIL_USER =", process.env.EMAIL_USER);
 console.log("EMAIL_PASS exists =", !!process.env.EMAIL_PASS);
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
+  host: "smtp-relay.brevo.com",
   port: 587,
   secure: false,
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
+    user: process.env.BREVO_USER,
+    pass: process.env.BREVO_PASS,
+},
 });
 
 transporter.verify(function (error, success) {
@@ -55,7 +55,7 @@ transporter.verify(function (error, success) {
 });
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,
+      from: process.env.BREVO_USER,
       to: "shacademypondy@gmail.com",
       subject: "New Enrollment Request - Sky High Academy",
     
