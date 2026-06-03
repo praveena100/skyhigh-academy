@@ -55,7 +55,7 @@ transporter.verify(function (error, success) {
 });
 
     const mailOptions = {
-      from: process.env.BREVO_USER,
+      from: "shacademypondy@gmail.com",
       to: "shacademypondy@gmail.com",
       subject: "New Enrollment Request - Sky High Academy",
     
