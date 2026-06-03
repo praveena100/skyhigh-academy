@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const nodemailer = require("nodemailer");
+const SibApiV3Sdk = require("@getbrevo/brevo");
 const supabase = require("../supabase");
 
 router.post("/", async (req, res) => {
@@ -30,36 +30,15 @@ if (error) {
 }
 
 console.log("Data inserted into Supabase");
-    
-console.log("EMAIL_USER =", process.env.EMAIL_USER);
-console.log("EMAIL_PASS exists =", !!process.env.EMAIL_PASS);
+   
+const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+apiInstance.setApiKey(0, process.env.BREVO_API_KEY);
 
-const transporter = nodemailer.createTransport({
-  host: "smtp-relay.brevo.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.BREVO_USER,
-    pass: process.env.BREVO_PASS,
-},
-});
-
-transporter.verify(function (error, success) {
-
-  if (error) {
-    console.log("EMAIL ERROR:", error);
-  } else {
-    console.log("SERVER IS READY");
-  }
-
-});
-
-    const mailOptions = {
-      from: "shacademypondy@gmail.com",
-      to: "shacademypondy@gmail.com",
-      subject: "New Enrollment Request - Sky High Academy",
-    
-      html: `
+await apiInstance.sendTransacEmail({
+  sender: { email: "shacademypondy@gmail.com", name: "Sky High Academy" },
+  to: [{ email: "shacademypondy@gmail.com" }],
+  subject: "New Enrollment Request - Sky High Academy",
+  htmlContent: `
   <div style="font-family: Arial, sans-serif; background:#f4f7fb; padding:30px;">
 
     <div style="
@@ -78,90 +57,57 @@ transporter.verify(function (error, success) {
         text-align:center;
       ">
         <h1 style="margin:0;">Sky High Academy</h1>
-        <p style="margin-top:8px;font-size:14px;">
-          New Enrollment Form Submission
-        </p>
+        <p style="margin-top:8px;font-size:14px;">New Enrollment Form Submission</p>
       </div>
 
       <div style="padding:25px;">
-
         <table style="width:100%; border-collapse:collapse;">
-
           <tr>
             <td style="padding:12px; font-weight:bold;">Student Name</td>
             <td style="padding:12px;">${data.studentName}</td>
           </tr>
-
           <tr style="background:#f8fbff;">
             <td style="padding:12px; font-weight:bold;">Parent Name</td>
             <td style="padding:12px;">${data.parentName}</td>
           </tr>
-
           <tr>
             <td style="padding:12px; font-weight:bold;">Phone</td>
             <td style="padding:12px;">${data.phone}</td>
           </tr>
-
           <tr style="background:#f8fbff;">
             <td style="padding:12px; font-weight:bold;">Email</td>
             <td style="padding:12px;">${data.email || "-"}</td>
           </tr>
-
           <tr>
             <td style="padding:12px; font-weight:bold;">Student Type</td>
             <td style="padding:12px;">${data.studentType}</td>
           </tr>
-
         </table>
 
-        <h3 style="
-          margin-top:30px;
-          color:#1565c0;
-        ">
-          Program Details
-        </h3>
+        <h3 style="margin-top:30px; color:#1565c0;">Program Details</h3>
+        <div style="background:#f4f8ff; padding:18px; border-radius:10px; line-height:1.8;">
+          <pre style="margin:0; white-space:pre-wrap;">${Object.entries(data.extraDetails || {}).map(([key, value]) => `${key}: ${value}`).join(" | ")}</pre>
+        </div>
 
-        <div style="
-  background:#f4f8ff;
-  padding:18px;
-  border-radius:10px;
-  line-height:1.8;
-">
-  <pre style="margin:0; white-space:pre-wrap;">
-${Object.entries(data.extraDetails || {})
-  .map(([key, value]) => `${key}: ${value}`)
-  .join(" | ")}
-  </pre>
-</div>
-
-<h3 style="
-  margin-top:30px;
-  color:#1565c0;
-">
-  Additional Message
-</h3>
-
-<div style="
-  background:#fafafa;
-  padding:18px;
-  border-radius:10px;
-  border:1px solid #eee;
-">
-  ${data.message || "No message"}
-</div>
-
+        <h3 style="margin-top:30px; color:#1565c0;">Additional Message</h3>
+        <div style="background:#fafafa; padding:18px; border-radius:10px; border:1px solid #eee;">
+          ${data.message || "No message"}
+        </div>
+      </div>
     </div>
-
   </div>
-`,
-    };
+`
+});
 
-    await transporter.sendMail(mailOptions);
+console.log("EMAIL SENT");
+
+res.status(200).json({
+  success: true,
+  message: "Enrollment submitted successfully"
+});
+
+
     
-    res.status(200).json({
-      success: true,
-      message: "Enrollment submitted successfully"
-    });
 
   } catch (error) {
 
