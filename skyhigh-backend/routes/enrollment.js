@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const SibApiV3Sdk = require("@getbrevo/brevo");
+const Brevo = require("@getbrevo/brevo");
+const apiInstance = new Brevo.TransactionalEmailsApi();
+apiInstance.setApiKey(0, process.env.BREVO_API_KEY);
 const supabase = require("../supabase");
 
 router.post("/", async (req, res) => {
@@ -31,8 +33,7 @@ if (error) {
 
 console.log("Data inserted into Supabase");
    
-const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
-apiInstance.setApiKey(0, process.env.BREVO_API_KEY);
+
 
 await apiInstance.sendTransacEmail({
   sender: { email: "shacademypondy@gmail.com", name: "Sky High Academy" },
