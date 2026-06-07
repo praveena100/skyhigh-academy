@@ -1,9 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const SibApiV3Sdk = require("sib-api-v3-sdk");
-const defaultClient = SibApiV3Sdk.ApiClient.instance;
-defaultClient.authentications["api-key"].apiKey = process.env.BREVO_API_KEY;
-const apiInstance = new SibApiV3Sdk.TransactionalEmailsApi();
+const { Resend } = require("resend");
+const resend = new Resend(process.env.RESEND_API_KEY);
 const supabase = require("../supabase");
 
 router.post("/", async (req, res) => {
@@ -36,11 +34,11 @@ console.log("Data inserted into Supabase");
    
 
 
-await apiInstance.sendTransacEmail({
-  sender: { email: "shacademypondy@gmail.com", name: "Sky High Academy" },
-  to: [{ email: "shacademypondy@gmail.com" }],
+await resend.emails.send({
+  from: "Sky High Academy <onboarding@resend.dev>",
+  to: "shacademypondy@gmail.com",
   subject: "New Enrollment Request - Sky High Academy",
-  htmlContent: `
+  html: `
   <div style="font-family: Arial, sans-serif; background:#f4f7fb; padding:30px;">
 
     <div style="
